@@ -1,6 +1,6 @@
 # 0.1.0
 
-Initial release of cmd_lamp
+Initial release of lamp
 
 * Enhancements
   * an enhancement

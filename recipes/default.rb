@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: cmd_lamp
+# Cookbook Name:: lamp
 # Recipe:: default
 #
 # Copyright (C) 2014 YOUR_NAME
@@ -88,9 +88,9 @@ execute 'chweb' do
   command "chweb dev /var/www"
 end
 
-if !node['cmd_lamp']['public_key'].nil? && !node['cmd_lamp']['public_key'].empty?
+if !node['lamp']['public_key'].nil? && !node['lamp']['public_key'].empty?
   execute 'devadd' do
-    command "devadd #{node['cmd_lamp']['username']} \"#{node['cmd_lamp']['public_key']}\""
+    command "devadd #{node['lamp']['username']} \"#{node['lamp']['public_key']}\""
   end
 end
 

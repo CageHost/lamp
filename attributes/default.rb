@@ -1,2 +1,2 @@
-default['cmd_lamp']['username'] = ''
-default['cmd_lamp']['public_key'] = ''
+default['lamp']['username'] = ''
+default['lamp']['public_key'] = ''

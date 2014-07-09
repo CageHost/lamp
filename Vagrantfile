@@ -79,7 +79,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
 
     chef.run_list = [
-        "recipe[cmd_lamp::default]"
+        "recipe[lamp::default]"
     ]
   end
 end

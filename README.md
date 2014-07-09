@@ -1,4 +1,4 @@
-# cmd_lamp-cookbook
+# lamp-cookbook
 
 TODO: Enter the cookbook description here.
 
@@ -16,7 +16,7 @@ TODO: List your supported platforms.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['cmd_lamp']['bacon']</tt></td>
+    <td><tt>['lamp']['bacon']</tt></td>
     <td>Boolean</td>
     <td>whether to include bacon</td>
     <td><tt>true</tt></td>
@@ -25,14 +25,14 @@ TODO: List your supported platforms.
 
 ## Usage
 
-### cmd_lamp::default
+### lamp::default
 
-Include `cmd_lamp` in your node's `run_list`:
+Include `lamp` in your node's `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[cmd_lamp::default]"
+    "recipe[lamp::default]"
   ]
 }
 ```
