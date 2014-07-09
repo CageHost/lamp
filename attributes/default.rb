@@ -1,2 +1,2 @@
-default['cmd_lamp']['username'] = 'user'
-default['cmd_lamp']['public_key'] = '~/.ssh/id_rsa.pub'
+default['cmd_lamp']['username'] = ''
+default['cmd_lamp']['public_key'] = ''

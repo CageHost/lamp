@@ -44,19 +44,32 @@ for p in packages do
   end
 end
 
-execute "gem install compass" do
+execute "gem install" do
   command "gem install compass"
-  action :run
+  notifies :create, "ruby_block[gem_set_installed]", :immediately
+  not_if { node.attribute?("gem_installed") }
 end
 
-execute "npm install grunt" do
-  command "npm install -g grunt-cli"
-  action :run
+execute "npm install" do
+  command "npm install -g grunt-cli forever"
+  notifies :create, "ruby_block[npm_set_installed]", :immediately
+  not_if { node.attribute?("npm_installed") }
 end
 
-execute "npm install forever" do
-  command "npm install -g forever"
-  action :run
+ruby_block "gem_set_installed" do
+  block do
+    node.set['npm_installed'] = true
+    node.save
+  end
+  action :nothing
+end
+
+ruby_block "npm_set_installed" do
+  block do
+    node.set['npm_installed'] = true
+    node.save
+  end
+  action :nothing
 end
 
 # Add templates, fix permissions and add key
@@ -75,11 +88,6 @@ template "/usr/local/bin/chweb" do
   mode "0755"
 end
 
-execute "web permissions" do
-  command "chown -R root:www-data /var/www && chmod 2775 /var/www"
-  action :run
-end
-
 directory "/etc/php5/apache2" do
   owner "root"
   group "root"
@@ -92,6 +100,10 @@ template "/etc/php5/apache2/php.ini" do
   owner "root"
   group "root"
   mode "0644"
+end
+
+execute 'chweb' do
+  command "chweb dev /var/www"
 end
 
 if !node['cmd_lamp']['public_key'].nil? && !node['cmd_lamp']['public_key'].empty?
