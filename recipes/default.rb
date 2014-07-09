@@ -46,30 +46,11 @@ end
 
 execute "gem install" do
   command "gem install compass"
-  notifies :create, "ruby_block[gem_set_installed]", :immediately
-  not_if { node.attribute?("gem_installed") }
+  not_if "gem list compass -i"
 end
 
 execute "npm install" do
   command "npm install -g grunt-cli forever"
-  notifies :create, "ruby_block[npm_set_installed]", :immediately
-  not_if { node.attribute?("npm_installed") }
-end
-
-ruby_block "gem_set_installed" do
-  block do
-    node.set['npm_installed'] = true
-    node.save
-  end
-  action :nothing
-end
-
-ruby_block "npm_set_installed" do
-  block do
-    node.set['npm_installed'] = true
-    node.save
-  end
-  action :nothing
 end
 
 # Add templates, fix permissions and add key
