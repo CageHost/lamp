@@ -51,7 +51,7 @@ end
 
 execute "npm install" do
   command "npm install -g grunt-cli forever"
-  not_if "npm -v"
+  not_if "npm list -g | grep 'grunt-cli\|forever'"
 end
 
 # Add templates, fix permissions and add key
