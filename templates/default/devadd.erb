@@ -9,9 +9,15 @@ then
         exit 1
 fi
 
+if [ id -u $1 ]
+then
+        echo "User already exists"
+        exit 1
+fi
+
 useradd -d /home/"$USER" -s /bin/bash -m "$USER"
 mkdir /home/"$USER"/.ssh
-echo "$KEY" >> /home/"$USER"/.ssh/authorized_keys
+echo "$KEY" > /home/"$USER"/.ssh/authorized_keys
 chmod 600 /home/"$USER"/.ssh/authorized_keys
 chown -R "$USER":"$USER" /home/"$USER"/.ssh
 usermod -a -G www-data "$USER"
