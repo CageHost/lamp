@@ -84,10 +84,6 @@ template "/etc/php5/apache2/php.ini" do
   mode "0644"
 end
 
-execute 'chweb' do
-  command "chweb dev /var/www"
-end
-
 # Add the user if they do not exist
 
 execute 'devadd' do
