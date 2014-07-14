@@ -107,10 +107,11 @@ end
 end
 
 # Add the user if they do not exist
-
-execute 'devadd' do
-  command "devadd #{node['lamp']['username']} \"#{node['lamp']['public_key']}\""
-  not_if "id -u #{node['lamp']['username']}"
+if node['lamp']['username'].length > 0
+  execute 'devadd' do
+    command "devadd #{node['lamp']['username']} \"#{node['lamp']['public_key']}\""
+    not_if "id -u #{node['lamp']['username']}"
+  end
 end
 
 # Create virtual hosts
