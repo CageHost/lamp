@@ -36,6 +36,7 @@ packages = [
 	"php-apc",
   "sendmail-bin",
 	"sendmail",
+  "unzip"
 ]
 
 for p in packages do
@@ -107,6 +108,7 @@ end
 end
 
 # Add the user if they do not exist
+
 if node['lamp']['username'].length > 0
   execute 'devadd' do
     command "devadd #{node['lamp']['username']} \"#{node['lamp']['public_key']}\""
