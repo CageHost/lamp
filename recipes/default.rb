@@ -52,7 +52,7 @@ execute "npm install" do
 end
 
 execute "gem install" do
-  command "gem install compass"
+  command "gem install compass capistrano"
   not_if "gem list compass -i"
 end
 
@@ -84,6 +84,26 @@ template "/etc/php5/apache2/php.ini" do
   owner "root"
   group "root"
   mode "0644"
+end
+
+directory "/var/www" do
+  owner "root"
+  group "www-data"
+  mode "2775"
+  action :create
+end
+
+%w[ "/var/www/**/*" ].each do |path|
+  file path do
+    owner "root"
+    group "www-data"
+    mode "2775"
+  end if File.file?(path)
+  directory path do
+    owner "root"
+    group "www-data"
+    mode "0664"
+  end if File.directory?(path)
 end
 
 # Add the user if they do not exist
