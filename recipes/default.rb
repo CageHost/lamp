@@ -28,6 +28,8 @@ end
 
 packages = [
 	"nano",
+  "php5-common",
+  "php5-cgi",
 	"php5-curl",
 	"php5-mcrypt",
 	"php5-mysql",
