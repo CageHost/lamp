@@ -28,6 +28,8 @@ end
 
 packages = [
 	"nano",
+  "ruby1.9.3",
+  "imagemagick",
   "php5-common",
   "php5-cgi",
 	"php5-curl",
