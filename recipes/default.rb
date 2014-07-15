@@ -112,6 +112,20 @@ end
   end if File.directory?(path)
 end
 
+# Nginx stuff
+
+template "/etc/nginx/sites-available/proxy" do
+  source "nginx_proxy.erb"
+  owner "root"
+  group "root"
+  mode "0644"
+end
+
+execute "nginx enable proxy" do
+  command "nxensite proxy"
+  not_if "stat /etc/nginx/sites-enabled/proxy"
+end
+
 # Add the user if they do not exist
 
 if node['lamp']['username'].length > 0
