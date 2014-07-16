@@ -134,13 +134,14 @@ end
 
 # Create virtual hosts
 
-sites = data_bag("sites")
+apache_vhosts = data_bag("apache_vhosts")
 
-sites.each do |s|
-	site = data_bag_item("sites", s)
-	web_app site["id"] do
+apache_vhosts.each do |i|
+	vhost = data_bag_item("apache_vhosts", i)
+	web_app vhost["id"] do
 		template "site.conf.erb"
-	  server_name site["id"]
-	  docroot "/var/www/" + site["dir"]
+	  server_name vhost["id"]
+	  docroot "/var/www/" + vhost["dir"]
+    port vhost["port"]
 	end
 end
