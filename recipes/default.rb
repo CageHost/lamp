@@ -28,7 +28,7 @@ end
 
 packages = [
 	"nano",
-  "ruby1.9.3",
+  "unzip",
   "imagemagick",
   "php5-common",
   "php5-cgi",
@@ -39,8 +39,7 @@ packages = [
 	"php5-imagick",
 	"php-apc",
   "sendmail-bin",
-	"sendmail",
-  "unzip"
+	"sendmail"
 ]
 
 for p in packages do
@@ -50,7 +49,7 @@ for p in packages do
 end
 
 execute "npm install" do
-  command "npm install -g grunt-cli forever"
+  command "npm install -g grunt-cli"
   not_if "npm list -g grunt-cli"
 end
 
