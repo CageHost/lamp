@@ -29,6 +29,7 @@ end
 packages = [
 	"nano",
   "unzip",
+  "aptitude",
   "imagemagick",
   "php5-common",
   "php5-cgi",
