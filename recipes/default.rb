@@ -49,11 +49,9 @@ for p in packages do
   end
 end
 
-#TODO: use a notification attribute instead of "gem list compass -i"
-
 execute "npm install" do
   command "npm install -g grunt-cli forever"
-  not_if "gem list compass -i"
+  not_if "npm list -g grunt-cli"
 end
 
 execute "gem install" do
