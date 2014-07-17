@@ -55,7 +55,7 @@ execute "npm install" do
 end
 
 execute "gem install" do
-  command "gem install compass capistrano"
+  command "rvmsudo gem install compass capistrano"
   not_if "gem list compass -i"
 end
 
