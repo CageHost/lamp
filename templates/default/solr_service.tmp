@@ -1,0 +1,26 @@
+#!/bin/sh
+
+INSTANCE="solr_jw_stage"
+PATH="/var/www/jeld-wen/stage/jel-solr"
+START="$PATH/scripts/start.sh"
+PIDFILE="/var/run/$INSTANCE.pid"
+
+case $1 in
+    start)
+		echo -n "Starting daemon: $INSTANCE"
+		/sbin/start-stop-daemon --start --quiet --pidfile "$PIDFILE" --exec "$START" -- "$INSTANCE" "$PATH"
+		echo "."
+    ;;
+    stop)
+		echo -n "Stopping deamon: $INSTANCE"
+		/sbin/start-stop-daemon --stop --quiet --oknodo --pidfile "$PIDFILE"
+		echo "."
+    ;;
+    restart)
+		echo -n "Restarting daemon: $INSTANCE"
+		/sbin/start-stop-daemon --stop --quiet --oknodo --retry 30 --pidfile "$PIDFILE"
+    	/sbin/ start-stop-daemon --start --quiet --pidfile "$PIDFILE" --make-pidfile --exec "$DAEMON" -- "$PATH" "$INSTANCE"
+    	echo "."
+    ;;
+esac
+exit 0
