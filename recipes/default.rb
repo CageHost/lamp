@@ -56,11 +56,6 @@ execute "npm install" do
   not_if "npm list -g grunt-cli"
 end
 
-execute "gem install" do
-  command "rvmsudo gem install compass capistrano"
-  not_if "gem list compass -i"
-end
-
 # Add templates, fix permissions and add key
 
 template "/usr/local/bin/devadd" do
