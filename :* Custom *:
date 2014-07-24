@@ -1,0 +1,48 @@
+/* Custom */
+
+.video {
+	background: url(../images/icon_video_small.png) 2px 0 no-repeat;
+}
+
+.hopup-video-container{
+	padding-top: 40px;
+}
+
+.hopup-video-caption{
+	margin: 15px 10px 0px 10px;
+	display: block;
+	font-size: 13px;
+	color: #666;
+}
+
+.hopup-video-youtube-iframe{
+	height: 360px !important;
+	width: 640px !important;
+	margin: auto;
+}
+
+#avs_gallery .avs_thumb .avs_img_container .arrow{
+	z-index: 0 !important;
+}
+
+#avs_gallery .avs_thumb{
+	width: 150px !important;
+	text-align: center;
+}
+
+#avs_gallery .avs_thumb .image {
+	display: inline;
+}
+
+#avs_gallery .avs_thumb .title {
+	color: #666;
+	line-height: 17px;
+}
+
+#avs_gallery .avs_thumb .views{
+	display: none !important;
+}
+
+#avs_gallery a{
+ 	outline: none;
+}

@@ -133,7 +133,7 @@ template "/etc/nginx/sites-available/solr" do
 end
 
 execute "nginx enable solr" do
-  command "nxensite proxy"
+  command "nxensite solr"
   not_if "stat /etc/nginx/sites-enabled/solr"
 end
 
