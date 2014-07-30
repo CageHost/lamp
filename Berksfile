@@ -1,6 +1,4 @@
-source "https://api.berkshelf.com"
-
-metadata
+source "http://api.berkshelf.com"
 
 cookbook 'build-essential'
 cookbook 'apt'
