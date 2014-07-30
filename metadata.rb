@@ -1,6 +1,6 @@
 name             'lamp'
-maintainer       'YOUR_NAME'
-maintainer_email 'YOUR_EMAIL'
+maintainer       'Alex Crawford'
+maintainer_email 'acrawford@cmdagency.com'
 license          'All rights reserved'
 description      'Installs/Configures lamp'
 long_description 'Installs/Configures lamp'
