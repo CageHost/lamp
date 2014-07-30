@@ -18,7 +18,7 @@ recipes = [
 	"mysql::server",
   "nginx",
 	"composer",
-	"nodejs::install_from_source",
+	"nodejs",
   "rvm::system"
 ]
 
