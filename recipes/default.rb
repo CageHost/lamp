@@ -19,7 +19,7 @@ recipes = [
   "nginx",
 	"composer",
 	"nodejs",
-  "rvm::system"
+  "rvm::system_install"
 ]
 
 for r in recipes do
